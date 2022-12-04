@@ -3,24 +3,23 @@ package a3PetShop;
 import javax.swing.JOptionPane;
 
 public class Interface extends javax.swing.JFrame {
-    
+
     public int count = 0;
     int var = 5;
     Cadastro[] cadastro = new Cadastro[5];
-    public static Cadastro[] Expandir (Cadastro[] velhoarray){
+
+    public static Cadastro[] Expandir(Cadastro[] velhoarray) {
         Cadastro[] novo = new Cadastro[velhoarray.length + 1];
-        for(int i = 0; i < velhoarray.length; i++){
+        for (int i = 0; i < velhoarray.length; i++) {
             novo[i] = velhoarray[i];
         }
         return novo;
     }
-    
 
     public Interface() {
         initComponents();
     }
 
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -258,15 +257,15 @@ public class Interface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletarActionPerformed
-        try{
-        int id3 = Integer.parseInt(idField.getText());
-        Cadastro[] newArray = new Cadastro[cadastro.length - 1];
-        cadastro[id3] = newArray[id3];
-        }catch(NullPointerException | NumberFormatException | ArrayIndexOutOfBoundsException e){
-            JOptionPane.showMessageDialog(null, "Cadastro não encontrado no sistema","Erro",JOptionPane.INFORMATION_MESSAGE);
+        try {
+            int id3 = Integer.parseInt(idField.getText());
+            Cadastro[] newArray = new Cadastro[cadastro.length - 1];
+            cadastro[id3] = newArray[id3];
+        } catch (NullPointerException | NumberFormatException | ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Cadastro não encontrado no sistema", "Erro", JOptionPane.INFORMATION_MESSAGE);
         }
-        
-    
+
+
     }//GEN-LAST:event_DeletarActionPerformed
 
     private void LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparActionPerformed
@@ -283,7 +282,7 @@ public class Interface extends javax.swing.JFrame {
 
     private void AdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdicionarActionPerformed
         count++;
-        if(count == cadastro.length){
+        if (count == cadastro.length) {
             cadastro = Expandir(cadastro);
         }
         String especie2 = especieField.getText();
@@ -342,7 +341,7 @@ public class Interface extends javax.swing.JFrame {
         cadastro[count] = new Cadastro(especie2, nome2, raca2, banho2, tosa2, vacina2, preco);
         Integer count2 = count;
         idField.setText(count2.toString());
-        
+
 
     }//GEN-LAST:event_AdicionarActionPerformed
 
@@ -351,118 +350,124 @@ public class Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_idFieldActionPerformed
 
     private void mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarActionPerformed
-        try{
-        int id3 = Integer.parseInt(idField.getText());
-        //System.out.println(at.getArrayId(id3));
-        especieField.setText(cadastro[id3].getEspecie());
-        nomeField.setText(cadastro[id3].getNome());
-        racaField.setText(cadastro[id3].getRaca());
-        int banho3 = cadastro[id3].getBanho();
-        System.out.println("");
-        if (banho3 == 70) {
-            banhoOption.setSelectedIndex(1);
-        } else if (banho3 == 110) {
-            banhoOption.setSelectedIndex(2);
-        } else if (banho3 != 70 || banho3 != 110) {
-            banhoOption.setSelectedIndex(0);
-        }
-        int tosa3 = cadastro[id3].getTosa();
-        if (tosa3 == 80) {
-            tosaOption.setSelectedIndex(1);
-        } else if (tosa3 == 145) {
-            tosaOption.setSelectedIndex(2);
-        } else if (tosa3 != 70 || tosa3 != 145) {
-            tosaOption.setSelectedIndex(0);
-        }
-        int vacina3 = cadastro[id3].getVacina();
-        if (vacina3 == 80) {
-            vacinaOption.setSelectedIndex(1);
-        } else if (vacina3 == 130) {
-            vacinaOption.setSelectedIndex(2);
-        } else if (vacina3 != 80 || vacina3 != 130) {
-            vacinaOption.setSelectedIndex(0);
-        }
-        Integer preco2 = cadastro[id3].getPreco();
-        precoLabel.setText(preco2.toString());
-        }catch(NullPointerException | NumberFormatException | ArrayIndexOutOfBoundsException e){
-            JOptionPane.showMessageDialog(null, "Cadastro não encontrado no sistema","Erro",JOptionPane.INFORMATION_MESSAGE);
+        try {
+            int id3 = Integer.parseInt(idField.getText());
+            //System.out.println(at.getArrayId(id3));
+            especieField.setText(cadastro[id3].getEspecie());
+            nomeField.setText(cadastro[id3].getNome());
+            racaField.setText(cadastro[id3].getRaca());
+            int banho3 = cadastro[id3].getBanho();
+            System.out.println("");
+            if (banho3 == 70) {
+                banhoOption.setSelectedIndex(1);
+            } else if (banho3 == 110) {
+                banhoOption.setSelectedIndex(2);
+            } else if (banho3 != 70 || banho3 != 110) {
+                banhoOption.setSelectedIndex(0);
+            }
+            int tosa3 = cadastro[id3].getTosa();
+            if (tosa3 == 80) {
+                tosaOption.setSelectedIndex(1);
+            } else if (tosa3 == 145) {
+                tosaOption.setSelectedIndex(2);
+            } else if (tosa3 != 70 || tosa3 != 145) {
+                tosaOption.setSelectedIndex(0);
+            }
+            int vacina3 = cadastro[id3].getVacina();
+            if (vacina3 == 80) {
+                vacinaOption.setSelectedIndex(1);
+            } else if (vacina3 == 130) {
+                vacinaOption.setSelectedIndex(2);
+            } else if (vacina3 != 80 || vacina3 != 130) {
+                vacinaOption.setSelectedIndex(0);
+            }
+            Integer preco2 = cadastro[id3].getPreco();
+            precoLabel.setText(preco2.toString());
+        } catch (NullPointerException | NumberFormatException | ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Cadastro não encontrado no sistema", "Erro", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_mostrarActionPerformed
 
     private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
-        
-        
-        
-        
-        try{
-        int id3 = Integer.parseInt(idField.getText());
-        int banho2 = 0;
-        String nome = nomeField.getText();
-        cadastro[id3].setPreco(0);
-        if(nome != cadastro[id3].getNome()){
-            
-        }else{
-            cadastro[id3].setNome(nome);
+
+        try {
+            int id3 = Integer.parseInt(idField.getText());
+            int banho2 = 0;
+            String nome = nomeField.getText();
+            cadastro[id3].setPreco(0);
+            if (nome == cadastro[id3].getNome()||nome == null) {
+                nome = cadastro[id3].getNome();
+            } else{
+                cadastro[id3].setNome(nome);
+            }/*else{
+                cadastro[id3].setNome(null);
+                
+            }*/
+            String especie = especieField.getText();
+            if (especie == cadastro[id3].getEspecie()||especie == null) {
+                especie = cadastro[id3].getEspecie();
+            }else {
+                cadastro[id3].setEspecie(especie);
+            } /*else {
+                cadastro[id3].setEspecie(null);
+            }*/
+            String raca = racaField.getText();
+            if (raca == cadastro[id3].getRaca()||raca == null) {
+                raca = cadastro[id3].getRaca();
+            }else{
+                cadastro[id3].setRaca(raca);
+            }/*
+            else {
+                 cadastro[id3].setRaca(null);
+            }*/
+            banho2 = (int) banhoOption.getSelectedIndex();
+
+            switch (banho2) {
+                case 1:
+                    cadastro[id3].setBanho(70);
+                    break;
+                case 2:
+                    cadastro[id3].setBanho(110);
+                    break;
+                default:
+                    cadastro[id3].setBanho(0);
+                    break;
+            }
+
+            int tosa2 = 0;
+            tosa2 = (int) tosaOption.getSelectedIndex();
+            switch (tosa2) {
+                case 1:
+                    cadastro[id3].setTosa(80);
+                    break;
+                case 2:
+                    cadastro[id3].setTosa(145);
+                    break;
+                default:
+                    cadastro[id3].setTosa(0);
+                    break;
+            }
+            int vacina2 = 0;
+            vacina2 = (int) vacinaOption.getSelectedIndex();
+            switch (vacina2) {
+                case 1:
+                    cadastro[id3].setVacina(80);
+                    break;
+                case 2:
+                    cadastro[id3].setVacina(130);
+                    break;
+                default:
+                    cadastro[id3].setVacina(0);
+                    break;
+            }
+            Integer preco3 = cadastro[id3].getPreco();
+            precoLabel.setText("R$" + preco3);
+        } catch (NullPointerException | NumberFormatException | ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "Cadastro não encontrado no sistema", "Erro", JOptionPane.INFORMATION_MESSAGE);
         }
-        String especie = especieField.getText();
-        if(especie != cadastro[id3].getEspecie()){
-        }else{
-            cadastro[id3].setEspecie(especie);
-        }
-        String raca = racaField.getText();
-        if(raca != cadastro[id3].getRaca()){
-            
-        }else{
-            cadastro[id3].setRaca(raca);
-        }
-        banho2 = (int) banhoOption.getSelectedIndex();
-        
-        switch (banho2) {
-            case 1:
-                cadastro[id3].setBanho(70);
-                break;
-            case 2:
-                cadastro[id3].setBanho(110);
-                break;
-            default:
-                cadastro[id3].setBanho(0);
-                break;
-        }
-        
-        int tosa2 = 0;
-        tosa2 = (int) tosaOption.getSelectedIndex();
-        switch (tosa2) {
-            case 1:
-                cadastro[id3].setTosa(80);
-                break;
-            case 2:
-                cadastro[id3].setTosa(145);
-                break;
-            default:
-                cadastro[id3].setTosa(0);
-                break;
-        }
-        int vacina2 = 0;
-        vacina2 = (int) vacinaOption.getSelectedIndex();
-        switch (vacina2) {
-            case 1:
-                cadastro[id3].setVacina(80);
-                break;
-            case 2:
-                cadastro[id3].setVacina(130);
-                break;
-            default:
-                cadastro[id3].setVacina(0);
-                break;
-        }
-        Integer preco3 = cadastro[id3].getPreco();
-        precoLabel.setText("R$" + preco3);
-        }catch(NullPointerException | NumberFormatException | ArrayIndexOutOfBoundsException e){
-            JOptionPane.showMessageDialog(null, "Cadastro não encontrado no sistema","Erro",JOptionPane.INFORMATION_MESSAGE);
-        }
-        
-        
+
+
     }//GEN-LAST:event_EditarActionPerformed
 
     /**
