@@ -14,20 +14,18 @@ public class PetShop extends javax.swing.JFrame {
         }
         return novo;
     }
+
     public void removerId(int id, Cadastro[] velhoarray) {
-		Cadastro[] newArray = new Cadastro[velhoarray.length - 1];
-		if (id >= velhoarray.length) {
-			for (int i = 0; i < velhoarray.length - 1; i++) {
-				velhoarray[id] = newArray[i];
-			}
-		}
+        Cadastro[] newArray = new Cadastro[velhoarray.length - 1];
+        for (int i = 0; i < velhoarray.length - 1; i++) {
+            velhoarray[id] = newArray[i];
+        }
 
+    }
 
-	}
     public PetShop() {
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -384,7 +382,7 @@ public class PetShop extends javax.swing.JFrame {
             int banho2 = 0;
             String nome = nomeField.getText();
             cadastro[id3].setPreco(0);
-            if (nome == cadastro[id3].getNome()|| nome != "") {
+            if (nome == "") {
                 nome = cadastro[id3].getNome();
             } else {
                 cadastro[id3].setNome(nome);
@@ -405,41 +403,41 @@ public class PetShop extends javax.swing.JFrame {
 
             switch (banho2) {
                 case 1:
-                cadastro[id3].setBanho(70);
-                break;
+                    cadastro[id3].setBanho(70);
+                    break;
                 case 2:
-                cadastro[id3].setBanho(110);
-                break;
+                    cadastro[id3].setBanho(110);
+                    break;
                 default:
-                cadastro[id3].setBanho(0);
-                break;
+                    cadastro[id3].setBanho(0);
+                    break;
             }
 
             int tosa2 = 0;
             tosa2 = (int) tosaOption.getSelectedIndex();
             switch (tosa2) {
                 case 1:
-                cadastro[id3].setTosa(80);
-                break;
+                    cadastro[id3].setTosa(80);
+                    break;
                 case 2:
-                cadastro[id3].setTosa(145);
-                break;
+                    cadastro[id3].setTosa(145);
+                    break;
                 default:
-                cadastro[id3].setTosa(0);
-                break;
+                    cadastro[id3].setTosa(0);
+                    break;
             }
             int vacina2 = 0;
             vacina2 = (int) vacinaOption.getSelectedIndex();
             switch (vacina2) {
                 case 1:
-                cadastro[id3].setVacina(80);
-                break;
+                    cadastro[id3].setVacina(80);
+                    break;
                 case 2:
-                cadastro[id3].setVacina(130);
-                break;
+                    cadastro[id3].setVacina(130);
+                    break;
                 default:
-                cadastro[id3].setVacina(0);
-                break;
+                    cadastro[id3].setVacina(0);
+                    break;
             }
             Integer preco3 = cadastro[id3].getPreco();
             precoLabel.setText("R$" + preco3);
@@ -510,52 +508,52 @@ public class PetShop extends javax.swing.JFrame {
         Integer preco = 0;
         switch (banho2) {
             case 1:
-            banho2 = 70;
-            preco = preco + 70;
-            break;
+                banho2 = 70;
+                preco = preco + 70;
+                break;
             case 2:
-            banho2 = 110;
-            preco = preco + 110;
-            break;
+                banho2 = 110;
+                preco = preco + 110;
+                break;
             default:
-            banho2 = 0;
-            preco = preco + 0;
-            break;
+                banho2 = 0;
+                preco = preco + 0;
+                break;
         }
         int tosa2 = 0;
         tosa2 = (int) tosaOption.getSelectedIndex();
         switch (tosa2) {
             case 1:
-            tosa2 = 80;
-            preco = preco + 80;
-            break;
+                tosa2 = 80;
+                preco = preco + 80;
+                break;
             case 2:
-            tosa2 = 145;
-            preco = preco + 145;
-            break;
+                tosa2 = 145;
+                preco = preco + 145;
+                break;
             default:
-            tosa2 = 0;
-            preco = preco + 0;
-            break;
+                tosa2 = 0;
+                preco = preco + 0;
+                break;
         }
         int vacina2 = 0;
         vacina2 = (int) vacinaOption.getSelectedIndex();
         switch (vacina2) {
             case 1:
-            vacina2 = 80;
-            preco = preco + 80;
-            break;
+                vacina2 = 80;
+                preco = preco + 80;
+                break;
             case 2:
-            vacina2 = 130;
-            preco = preco + 130;
-            break;
+                vacina2 = 130;
+                preco = preco + 130;
+                break;
             default:
-            vacina2 = 0;
-            preco = preco + 0;
-            break;
+                vacina2 = 0;
+                preco = preco + 0;
+                break;
         }
         precoLabel.setText("R$" + preco);
-        cadastro[count] = new Cadastro(especie2, nome2, raca2, banho2, tosa2, vacina2, preco);
+        cadastro[count] = new Cadastro(nome2, especie2, raca2, banho2, tosa2, vacina2, preco);
         Integer count2 = count;
         cadastro[count].setId(count);
 
@@ -569,10 +567,10 @@ public class PetShop extends javax.swing.JFrame {
         // TODO add your handling code here:
         String textoT = "";
         for (int i = 0; i < cadastro.length; i++) {
-            if(cadastro[i] != null){
-                textoT = textoT + "\nId: "+cadastro[i].getId()+"\nNome " +cadastro[i].getNome()+"\nEspecie: "+ cadastro[i].getEspecie()+"\nRaca: "+cadastro[i].getRaca()+"\nBanho: R$"+
-                cadastro[i].getBanho()+"\nTosa: R$" + cadastro[i].getTosa()+"\nPreco: R$"+cadastro[i].getPreco() + "\n" ;
-            }else{
+            if (cadastro[i] != null) {
+                textoT = textoT + "\nId: " +cadastro[i].getId()+ "\nEspecie: " + cadastro[i].getEspecie()+ "\nNome: " + cadastro[i].getNome() + "\nRaca: " + cadastro[i].getRaca() + "\nBanho: R$"
+                        + cadastro[i].getBanho() + "\nTosa: R$" + cadastro[i].getTosa() + "\nVacina: R$" +cadastro[i].getVacina()+  "\nPreco: R$" + cadastro[i].getPreco() + "\n";
+            } else {
 
             }
 
